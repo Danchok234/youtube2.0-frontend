@@ -1,0 +1,10 @@
+@import "@/scss/variables";
+
+.bottomMenu{
+	@apply hidden;
+	@include tablet{
+		@apply flex fixed h-[5rem] bottom-0 z-[90] bg-grey-500 w-full;
+		background-color: rgb(11, 13, 19)
+
+	}
+}

@@ -1,0 +1,14 @@
+@import "@/scss/variables";
+.recommended {
+	@apply mt-10 w-full;
+	.top_block{
+		@apply mb-6;
+	}
+	.catalog {
+		@apply w-full grid h-full gap-7 md:justify-start justify-center;
+		grid-template-columns: repeat(auto-fill, 16rem);
+	}
+	@include mobileS{
+		@apply mt-1;
+	}
+}

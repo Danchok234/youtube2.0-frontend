@@ -1,0 +1,29 @@
+.videoDetails{
+	@apply flex w-2/3;
+	.left_section{
+		@apply w-[70%];
+		.videoName{
+			@apply text-2xl my-2;
+		}
+		.description{
+			@apply text-grey-400 text-sm;
+		}
+	}
+	.right_section{
+		.actions{
+			@apply flex gap-3;
+			.like_button{
+				@apply py-2 px-5 bg-red-500 flex justify-center items-center gap-2 rounded-xl;
+			}
+		}
+		.statistics{
+			@apply mt-2;
+			.statistics_item{
+				@apply flex gap-2 items-center pt-2 text-grey-400 text-xl;
+				span{
+					@apply text-base;
+				}
+			}
+		}
+	}
+}

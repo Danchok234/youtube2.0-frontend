@@ -1,0 +1,19 @@
+@import '@/scss/variables';
+.sidebar {
+	@apply w-1/6 overflow-visible flex items-start justify-start flex-col h-full gap-10 pt-1;
+	.site_name {
+		@apply whitespace-nowrap font-medium text-3xl tracking-wide text-white no-underline text-center;
+	}
+	@include desktop {
+		@apply w-[20%] flex;
+		.site_name {
+			@apply pt-1 text-2xl;
+		}
+	}
+	@include laptop {
+		@apply mr-[2%] flex;
+	}
+	@include tablet{
+		@apply hidden;
+	}
+}

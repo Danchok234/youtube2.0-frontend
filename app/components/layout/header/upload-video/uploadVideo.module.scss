@@ -1,0 +1,11 @@
+.uploadVideo{
+	@apply text-grey-400 text-2xl;
+	transition:all 0.3s ease-in-out;
+	&:hover{
+		@apply text-white;
+		transform:scale(1.1);
+	}
+	.modal{
+		@apply bg-grey-500 relative z-10 w-full;
+	}
+}

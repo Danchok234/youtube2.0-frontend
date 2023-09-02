@@ -1,0 +1,14 @@
+.file{
+	>h1{
+		@apply text-xl mb-4;
+	}
+	>label{
+		@apply block;
+		span{
+			@apply sr-only;
+		}
+		>input{
+			@apply file:cursor-pointer cursor-pointer block text-sm text-grey-400 file:mr-4 file:bg-orange file:text-white file:border-none file:rounded-lg file:p-2;
+		}
+	}
+}

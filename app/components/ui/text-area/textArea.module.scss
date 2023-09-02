@@ -1,0 +1,9 @@
+.textarea{
+	@apply w-full;
+	textarea{
+		@apply text-white bg-grey-600 w-full rounded-lg outline-none p-2 h-[8rem] resize-none; 
+	}
+	.error{
+		@apply text-orange p-1 text-sm font-medium;
+	}
+}

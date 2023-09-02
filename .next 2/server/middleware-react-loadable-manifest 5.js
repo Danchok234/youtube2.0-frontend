@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"../../app/providers/AuthProvider.tsx -> ./CheckRole\":{\"id\":\"../../app/providers/AuthProvider.tsx -> ./CheckRole\",\"files\":[\"static/chunks/app_providers_CheckRole_tsx.js\"]}}"

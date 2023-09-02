@@ -1,0 +1,32 @@
+@import "@/scss/variables";
+.search {
+	@apply w-[60%] relative;
+	input {
+		@apply w-full p-[0.6rem] bg-grey-600 text-white rounded-xl outline-none;
+		&::placeholder {
+			@apply text-sm text-grey-400 tracking-wide;
+		}
+	}
+	.icon_block {
+		@apply absolute right-[1px] top-[1px] h-[95%] w-10 bg-grey-600 rounded-r-xl;
+		.icon {
+			@apply text-grey-400 relative top-2 -right-2 text-lg
+		}
+	}
+	.found_video-block{
+		@apply absolute w-full min-h-[11rem] bg-grey-600 rounded-xl invisible items-center justify-center opacity-0 grid grid-cols-4 top-12 px-3 gap-4 z-[60] pb-6;
+		grid-template-columns: repeat(auto-fill, 9rem);
+		box-shadow:0 0 20px black;
+		transition:all 0.3s ease-in-out;
+		&.visible{
+			@apply opacity-100;
+			visibility:visible;
+		}
+		&.no_videos{
+			@apply flex;
+		}
+	}
+	@include mobile{
+		@apply w-full
+	}
+}

@@ -1,0 +1,9 @@
+.input-field{
+	@apply mb-2 w-full;
+	input{
+		@apply text-white bg-grey-600 rounded-lg p-[0.5rem] w-full outline-none;
+	}
+	.error{
+		@apply text-orange p-1 text-sm font-medium;
+	}
+}

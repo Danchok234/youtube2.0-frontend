@@ -1,0 +1,21 @@
+.avatar{
+	@apply rounded-full flex justify-center items-center relative w-[42px] h-[42px] z-30;
+	border:2px solid rgba(255, 255, 255,0.5);
+	transition:all 0.3s ease-in-out;
+	&.small{
+		@apply w-[35px] h-[35px];
+		.isVerified{
+			@apply w-3 h-3 font-extrabold
+		}
+	}
+	img{
+		@apply rounded-full overflow-hidden
+	}
+	.isVerified{
+		@apply absolute right-0 bottom-0 bg-[#1584E0] rounded-full w-[14px] h-[14px] flex items-center justify-center
+	}
+	&:hover{
+		transform:scale(1.1);
+		border-color:white;
+	}
+}

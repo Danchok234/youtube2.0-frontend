@@ -1,0 +1,7 @@
+@import "@/scss/variables";
+.header{
+	@apply flex justify-between gap-6 items-center h-[3rem];
+	@include mobile{
+		@apply flex-col-reverse h-[6rem] w-full gap-6
+	}
+}

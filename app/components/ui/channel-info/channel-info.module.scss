@@ -1,0 +1,18 @@
+.channel_info {
+	@apply flex flex-col gap-3 text-grey-400;
+	> div {
+		@apply flex gap-3 items-center;
+		.info {
+			@apply w-[60%];
+			.name {
+				@apply text-white ;
+			}
+			.subscribers {
+				@apply text-grey-400 text-sm whitespace-nowrap;
+			}
+		}
+	}
+	.description {
+		@apply font-light;
+	}
+}

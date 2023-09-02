@@ -1,0 +1,8 @@
+.button{
+	@apply text-white bg-orange px-7 py-2 rounded-xl self-center cursor-pointer;
+	transition:0.3s all ease-in-out;
+	&:hover{
+		transform:scale(1.1);
+		box-shadow: 0 0 15px rgba(128, 128, 128,0.3);
+	}
+}

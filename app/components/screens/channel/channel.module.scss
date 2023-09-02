@@ -1,0 +1,6 @@
+.channel{
+	@apply ml-2 mt-4 gap-8 block;
+	.channel_info{
+		@apply flex items-start gap-5 mb-10
+	}	
+}

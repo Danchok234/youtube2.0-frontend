@@ -1,0 +1,32 @@
+@import "@/scss/variables";
+
+.discover{
+	@apply h-[22rem] flex gap-4;
+	> *{
+		@apply overflow-hidden rounded-2xl
+	}
+	.top_video{
+		@apply h-full w-7/12 relative;
+	}
+	.random_video{
+		@apply w-5/12 relative;
+	}
+	@include desktop{
+	@apply flex-col h-fit w-[75%];
+		.top_video{
+			@apply w-full pb-3
+		}
+		.random_video{
+		@apply w-full pb-3
+		}
+	}
+	@include laptop{
+	@apply w-[90%]
+	}
+	@include tablet{
+		@apply w-full
+	}
+	@include mobileS{
+		@apply hidden;
+	}
+}

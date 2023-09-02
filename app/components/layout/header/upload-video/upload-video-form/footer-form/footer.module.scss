@@ -1,0 +1,21 @@
+.footer{
+	@apply flex items-center justify-between w-full;
+	.status{
+		@apply flex gap-2 items-center;
+		.check-icon{
+			@apply text-2xl text-orange hidden
+		}
+		.upload-icon{
+			@apply text-2xl text-orange block
+		}
+		&.icon-uploaded{
+			.check-icon{
+				@apply block
+			}
+			.upload-icon{
+				@apply hidden
+			}
+		}
+	}
+}
+

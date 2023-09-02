@@ -1,0 +1,80 @@
+@import '@/scss/variables';
+
+.menu {
+	@apply border-b-[1px] pb-12 border-[#292831] w-[90%];
+	> h3 {
+		@apply text-xs tracking-wider text-[#3F3D4B] mb-7;
+	}
+	.fallback {
+		@apply text-left text-grey-400;
+	}
+	> ul {
+		@apply flex flex-col gap-7 list-none pl-0;
+		.menu-item {
+			.link {
+				@apply text-white font-light no-underline;
+				> span {
+					@apply flex gap-4 items-center;
+					transition: all 0.3s ease-in-out;
+					.icon {
+						transition: all 0.3s ease-in-out;
+						@apply text-grey-400 p-2 min-w-[2.2rem] max-w-[2.2rem] h-[2.2rem] bg-grey-600 rounded-xl;
+					}
+					b {
+						@apply font-thin text-grey-400;
+					}
+				}
+				&:not(.active):hover {
+					.icon {
+						@apply bg-grey-400 text-grey-600;
+						transform: scale(1.1);
+					}
+				}
+				&.active {
+					@apply cursor-default;
+					.icon {
+						@apply bg-orange text-white;
+					}
+					b {
+						@apply font-normal text-white;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include tablet {
+	.menu {
+		@apply w-full h-full pb-0 px-20;
+		> ul {
+			@apply flex-row justify-between items-center h-full;
+			.link {
+				> span {
+					.icon {
+						@apply text-xl scale-125;
+					}
+					b {
+						@apply hidden;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include mobile {
+	.menu {
+	@apply px-5;
+		> ul {
+			.link {
+				> span {
+					.icon {
+					}
+					b {
+					}
+				}
+			}
+		}
+	}
+}

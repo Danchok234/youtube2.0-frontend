@@ -1,0 +1,29 @@
+@import '@/scss/variables';
+
+.main {
+	@apply flex flex-wrap m-8;
+	.content {
+		@apply w-[83%];
+	}
+
+	.wrapper {
+		@apply pl-6 pr-8;
+	}
+
+	@include desktop {
+		.content {
+			@apply w-[80%];
+		}
+	}
+	@include laptop {
+		.content {
+			@apply w-[78%];
+		}
+	}
+	@include tablet {
+	@apply mb-[10rem];
+		.content {
+			@apply w-full;
+		}
+	}
+}

@@ -1,0 +1,23 @@
+@import "@/scss/variables";
+
+.wrapper{
+	@apply pt-5;
+	.element{
+		@apply flex gap-7 items-center w-full h-[12rem] flex-grow pb-2 overflow-hidden;
+		border-bottom:1px solid rgba(128,128,128,0.4);
+		.videos{
+
+			@apply grid grid-cols-[calc(100%/10rem)] gap-5 w-full h-[calc(12rem*0.82)] overflow-hidden;
+			grid-template-columns: repeat(auto-fill, 10rem);
+		}
+
+	}
+	@include mobileS{
+		.element{
+			@apply justify-center h-[8rem];
+			.videos{
+				@apply hidden;
+			}
+		}
+	}
+}

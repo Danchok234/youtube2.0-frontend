@@ -1,0 +1,22 @@
+.auth {
+	@apply relative z-30 sm:w-auto w-full flex justify-end;
+	.button{
+		@apply w-8 h-8 cursor-pointer;
+	}
+	.form {
+		@apply w-[16rem] min-h-min absolute top-10 bg-gray-600 right-0 rounded-xl pt-1 p-1 flex flex-col;
+		.change_type_button{
+			@apply m-auto max-w-fit text-sm font-normal text-gray-400 mt-1 p-1;
+			transition:all 0.3s ease-in-out;
+			&:hover{
+				@apply underline text-white transform-none shadow-none;
+			}
+		}
+	}
+}
+.disabled{
+	@apply bg-red-100 opacity-80;
+	&:hover{
+		@apply transform-none;
+	}
+}
