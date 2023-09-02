@@ -45,5 +45,11 @@
 	},
 	"devDependencies": {
 		"@types/redux-persist": "^4.3.1"
+	},
+	"overrides": {
+		"@types/react": "^18.2.20"
+	},
+	"resolutions": {
+		"@types/react": "^18.2.20"
 	}
 }
