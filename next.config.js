@@ -12,11 +12,11 @@ const nextConfig = {
 		return [
 			{
 				source: '/api/:path*',
-				destination: 'http://localhost:4200/api/:path*',
+				destination: 'https://youtube2-0-backend.onrender.com/api/:path*',
 			},
 			{
 				source: '/uploads/:path*',
-				destination: 'http://localhost:4200/uploads/:path*',
+				destination: 'https://youtube2-0-backend.onrender.com/uploads/:path*',
 			},
 		]
 	},
