@@ -23,12 +23,21 @@ const Video: FC = () => {
 
 	return (
 		<Layout title={video.name}>
-			<div className={styles.top_section}>
+			{/* <div className={styles.top_section}>
 				<VideoPlayer videoPath={video.videoPath} />
 				<Comments comments={ video.comments} videoId={video.id}/>
 			</div>
 			<div className={styles.bottom_section}>
 				<VideoDetails video={video} />
+			</div> */}
+			<div className='w-full flex xl:flex-row flex-col gap-5 mt-4'>
+				<div className='xl:w-2/3 w-full flex flex-col  gap-5'>
+					<VideoPlayer videoPath={video.videoPath} />
+					<VideoDetails video={video} />
+				</div>
+				<div className='xl:w-1/3 w-full xl:h-auto h-[22rem]'>
+				<Comments comments={ video.comments} videoId={video.id}/>
+				</div>
 			</div>
 		</Layout>
 	)

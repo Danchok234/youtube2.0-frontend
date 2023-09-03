@@ -30,7 +30,7 @@ export const store = configureStore({
 				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
 			},
 		})
-			.concat(rtkQueryErrorLogger)
+			// .concat(rtkQueryErrorLogger)
 			.concat(api.middleware)
 })
 

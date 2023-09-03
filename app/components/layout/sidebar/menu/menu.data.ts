@@ -13,11 +13,6 @@ export const menuData: IMenuItem[] = [
 		link: '/trending',
 	},
 	{
-		icon: HiStar,
-		name: 'My Channel',
-		link: '/my-channel',
-	},
-	{
 		icon: HiCollection,
 		name: 'My subscriptions',
 		link: '/subscriptions',

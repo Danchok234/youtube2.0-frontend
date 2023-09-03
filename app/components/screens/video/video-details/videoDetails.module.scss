@@ -1,25 +1,26 @@
 .videoDetails{
-	@apply flex w-2/3;
+	@apply flex md:flex-row flex-col gap-2 w-full;
 	.left_section{
-		@apply w-[70%];
+		@apply md:w-[70%] w-full;
 		.videoName{
-			@apply text-2xl my-2;
+			@apply sm:text-2xl text-lg my-2;
 		}
 		.description{
 			@apply text-grey-400 text-sm;
 		}
 	}
 	.right_section{
+		
 		.actions{
-			@apply flex gap-3;
+			@apply flex gap-3 ;
 			.like_button{
 				@apply py-2 px-5 bg-red-500 flex justify-center items-center gap-2 rounded-xl;
 			}
 		}
 		.statistics{
-			@apply mt-2;
+			@apply mt-2 md:flex-col flex sm:flex-row flex-col gap-0 sm:gap-4 md:gap-0;
 			.statistics_item{
-				@apply flex gap-2 items-center pt-2 text-grey-400 text-xl;
+				@apply whitespace-nowrap flex gap-2 items-center pt-2 text-grey-400 text-xl;
 				span{
 					@apply text-base;
 				}

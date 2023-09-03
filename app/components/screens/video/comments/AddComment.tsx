@@ -22,7 +22,7 @@ const AddComment: FC<IAddComment> = ({videoId}) => {
 	}
 
 	return (<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-		<div className="relative">
+		<div className="relative flex gap-3">
 		<input className={"w-[85%] h-9 bg-grey-500 p-2 rounded-lg outline-none"} {...register("commentText", {
 			required:"Message is required!"
 		})} placeholder='Comment...' />
