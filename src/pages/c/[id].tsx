@@ -2,15 +2,17 @@ import Channel from '@/components/screens/channel/Channel'
 import { IChannel } from '@/components/screens/channel/channel.interface'
 import { UserService } from '@/services/user/user.service'
 import { IUser } from '@/types/user.interface'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 
 const ChannelPage: NextPage<IChannel> = ({ channel }) => {
 	return <Channel channel={channel} />
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async context => {
+	const { id } = context.query
+
 	try {
-		const { data: channel } = await UserService.getUser(Number(params?.id))
+		const { data: channel } = await UserService.getUser(Number(id))
 
 		return {
 			props: {
@@ -20,28 +22,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	} catch (error) {
 		return {
 			props: {} as IUser,
-		}
-	}
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-	try {
-		const { data: users } = await UserService.getAll()
-
-		const paths = users.map(item => ({
-			params: {
-				id: String(item.id),
-			},
-		}))
-
-		return {
-			paths,
-			fallback: 'blocking',
-		}
-	} catch (error) {
-		return {
-			paths: [],
-			fallback: false,
 		}
 	}
 }
