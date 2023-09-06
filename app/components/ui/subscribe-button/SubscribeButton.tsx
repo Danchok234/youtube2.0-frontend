@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import { FC } from 'react'
 import { BsPersonPlusFill } from 'react-icons/bs'
 import styles from './subscribe-button.module.scss'
+import Button from '../button/Button'
 
 interface ISubscribeButton {
 	toChannelId: number
@@ -25,7 +26,7 @@ const SubscribeButton: FC<ISubscribeButton> = ({ toChannelId }) => {
 	return (
 		<>
 			{user && (
-				<button
+				<Button
 					className={clsx(styles.button, {
 						[styles.subscribed]: isSubscribed,
 					})}
@@ -34,7 +35,7 @@ const SubscribeButton: FC<ISubscribeButton> = ({ toChannelId }) => {
 				>
 					<BsPersonPlusFill />
 					{isSubscribed ? 'Subscribed' : 'Subscribe'}
-				</button>
+				</Button>
 			)}
 		</>
 	)

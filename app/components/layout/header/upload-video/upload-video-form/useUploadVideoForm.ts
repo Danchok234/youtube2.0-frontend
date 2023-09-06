@@ -44,7 +44,6 @@ export const useUploadVideoForm = ({ videoId, setIsOpen }: IUseUploadVideoForm) 
 
 	const handleUploadVideo = (media: IMediaResponse) => {
 		setValue('videoPath', media.url)
-		setValue('name', media.name)
 		//@ts-ignore
 		setValue('duration', Math.round(media?.duration))
 		setVideoFileName(media.name)

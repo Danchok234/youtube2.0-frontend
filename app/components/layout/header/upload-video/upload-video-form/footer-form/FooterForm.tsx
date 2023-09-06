@@ -9,7 +9,16 @@ interface IFooterForm {
 	isUploaded:boolean
 }
 
-const FooterForm: FC<IFooterForm> = ({percent, isUploaded}) => {
+const FooterForm: FC<IFooterForm> = ({ percent, isUploaded }) => {
+	
+	const buttonStyle = !isUploaded
+		? {
+			backgroundColor: 'rgb(252, 165, 165)',
+			
+		  }
+		: {}
+
+
 	return <div className={styles.footer}>
 		<div className={clsx(styles.status,{
 			[styles['icon-uploaded']]:isUploaded
@@ -21,7 +30,7 @@ const FooterForm: FC<IFooterForm> = ({percent, isUploaded}) => {
 			</span>
 		</div>	
 		<div>
-			<Button>Save</Button>
+			<Button disabled={!isUploaded} style={buttonStyle}>{isUploaded?"Save":"Wait..."}</Button>
 		</div>
 	</div>
 }

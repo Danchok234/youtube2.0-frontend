@@ -14,7 +14,7 @@ const VideoPlayer: FC<IVideoPlayer> = ({ videoPath }) => {
 
 	return (
 		<div className={styles.wrapper}>
-			<video src={`${videoPath}`} preload='metadata' onClick={toggleVideo} ref={videoRef}  width={300} height={300}/>
+			<video src={`${videoPath}`} playsInline controls={false} preload='metadata' onClick={toggleVideo} ref={videoRef}  width={300} height={300}/>
 			<div
 				className={clsx(styles.controls, {
 					[styles.hide]: videoState.isPlaying,

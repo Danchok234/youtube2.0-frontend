@@ -15,6 +15,9 @@
 			@apply flex gap-3 ;
 			.like_button{
 				@apply py-2 px-5 bg-red-500 flex justify-center items-center gap-2 rounded-xl;
+				&.liked{
+				@apply bg-grey-400;
+			}
 			}
 		}
 		.statistics{

@@ -31,7 +31,7 @@ const ProfileMenu: FC = () => {
 			<button onClick={() => setIsShow(!isShow)}>
 				<div className='flex rounded-full w-[40px] h-[40px] items-center justify-center overflow-hidden'>
 					<Image
-						src={data?.avatarPath ? data.avatarPath : '/default/user.png'}
+						src={data?.avatarPath ? data.avatarPath : '/default/user.webp'}
 						width={40}
 						height={40}
 						alt={data?.name || ''}

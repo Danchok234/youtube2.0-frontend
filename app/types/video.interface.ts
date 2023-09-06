@@ -5,7 +5,8 @@ import { IUser } from './user.interface'
 export interface IVideo extends IBase {
 	name?: string
 	views: number
-	likes: number
+	likes?:ILike[]
+	likesCount: number
 	duration?: number
 	isPublic?: boolean
 	description: string
@@ -20,3 +21,8 @@ export interface IVideoDto
 		IVideo,
 		'name' | 'isPublic' | 'description' | 'thumbnailPath' | 'videoPath' | 'id' | "duration"
 	> {}
+
+export interface ILike extends IBase {
+	fromChannel:IUser,
+	toVideo:IVideo
+}
