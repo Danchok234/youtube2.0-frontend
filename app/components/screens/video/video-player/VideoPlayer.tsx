@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { IoMdPause, IoMdPlay } from 'react-icons/io'
 import { RxEnterFullScreen } from 'react-icons/rx'
 import { usePlayer } from './usePlayer'
@@ -10,17 +10,20 @@ interface IVideoPlayer {
 }
 
 const VideoPlayer: FC<IVideoPlayer> = ({ videoPath }) => {
+
+	const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+
 	const { toggleVideo, videoRef, videoState, fullscreen } = usePlayer()
 
 	return (
 		<div className={styles.wrapper}>
-			<video src={`${videoPath}`} playsInline controls={ true } preload='metadata' onClick={toggleVideo} ref={videoRef}  width={300} height={300}/>
+			<video src={`${videoPath}`} playsInline controls={screenWidth > 767 ? false : true } preload='metadata' onClick={screenWidth>767?toggleVideo: ()=>{}} ref={videoRef}  width={300} height={300}/>
 			<div
 				className={clsx(styles.controls, {
 					[styles.hide]: videoState.isPlaying,
 				})}
 			>
-				<button onClick={() => toggleVideo()}>
+				<button onClick={toggleVideo}>
 					{videoState.isPlaying ? <IoMdPause /> : <IoMdPlay />}
 				</button>
 
@@ -34,7 +37,7 @@ const VideoPlayer: FC<IVideoPlayer> = ({ videoPath }) => {
 					<p>{Math.floor(videoState.videoTime/60) + ":" + ("0"+ Math.floor(videoState.videoTime%60)).slice(-2)}</p>
 			</div>
 
-			<button className={styles.fullscreen} onClick={()=>fullscreen()}>
+			<button className={styles.fullscreen} onClick={fullscreen}>
 			<RxEnterFullScreen className={styles.fullscreenButton} />
 			</button>
 			</div>

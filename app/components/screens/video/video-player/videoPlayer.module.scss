@@ -4,7 +4,7 @@
 		@apply rounded-2xl w-full;
 	}
 	.controls{
-		@apply absolute opacity-100 bottom-0 sm:flex hidden gap-3 items-center mx-5 sm:ml-5 ml-2 mb-4 bg-grey-600 bg-opacity-60 px-3 py-2 justify-between rounded-xl w-[95%];
+		@apply absolute opacity-100 bottom-0 md:flex hidden gap-3 items-center mx-5 sm:ml-5 ml-2 mb-4 bg-grey-600 bg-opacity-60 px-3 py-2 justify-between rounded-xl w-[95%];
 		transition:all 0.5s ease-in-out;
 		.progressBarWrapper{
 			@apply w-[70%] bg-grey-400 h-2 rounded-2xl;
