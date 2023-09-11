@@ -38,6 +38,7 @@ const VideoPlayer: FC<IVideoPlayer> = ({ videoPath }) => {
 			<div
 				className={clsx(styles.controls, {
 					[styles.hide]: videoState.isPlaying,
+					[styles.fullyHidden]:isIphone
 				})}
 			>
 				<button onClick={toggleVideo}>{videoState.isPlaying ? <IoMdPause /> : <IoMdPlay />}</button>
