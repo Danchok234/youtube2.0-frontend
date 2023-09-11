@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { IoMdPause, IoMdPlay } from 'react-icons/io'
 import { RxEnterFullScreen } from 'react-icons/rx'
 import { usePlayer } from './usePlayer'
@@ -11,35 +11,58 @@ interface IVideoPlayer {
 
 const VideoPlayer: FC<IVideoPlayer> = ({ videoPath }) => {
 
-	const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+	const [isIphone, setIsIphone] = useState(false)
 
 	const { toggleVideo, videoRef, videoState, fullscreen } = usePlayer()
 
+	useEffect(() => {
+		if (/iPhone|iPad/.test(navigator.userAgent)) {
+			setIsIphone(true)
+		} else {
+			setIsIphone(false)
+		}
+	}, [])
+
 	return (
 		<div className={styles.wrapper}>
-			<video src={`${videoPath}`} playsInline controls={screenWidth > 767 ? false : true } preload='metadata' onClick={screenWidth>767?toggleVideo: ()=>{}} ref={videoRef}  width={300} height={300}/>
+			<video
+				src={`${videoPath}`}
+				playsInline
+				controls={isIphone ? true : false}
+				preload='metadata'
+				onClick={isIphone ? () => {} : toggleVideo}
+				ref={videoRef}
+				width={300}
+				height={300}
+			/>
 			<div
 				className={clsx(styles.controls, {
 					[styles.hide]: videoState.isPlaying,
 				})}
 			>
-				<button onClick={toggleVideo}>
-					{videoState.isPlaying ? <IoMdPause /> : <IoMdPlay />}
-				</button>
+				<button onClick={toggleVideo}>{videoState.isPlaying ? <IoMdPause /> : <IoMdPlay />}</button>
 
 				<div className={styles.progressBarWrapper}>
-					<div className={styles.progressBar} style={{width:`${videoState.progress}%`}} />
+					<div className={styles.progressBar} style={{ width: `${videoState.progress}%` }} />
 				</div>
 
 				<div className={styles.time}>
-					<p>{Math.floor(videoState.currentTime/60) + ":" + ("0"+ Math.floor(videoState.currentTime%60)).slice(-2)}</p>
+					<p>
+						{Math.floor(videoState.currentTime / 60) +
+							':' +
+							('0' + Math.floor(videoState.currentTime % 60)).slice(-2)}
+					</p>
 					<p>/</p>
-					<p>{Math.floor(videoState.videoTime/60) + ":" + ("0"+ Math.floor(videoState.videoTime%60)).slice(-2)}</p>
-			</div>
+					<p>
+						{Math.floor(videoState.videoTime / 60) +
+							':' +
+							('0' + Math.floor(videoState.videoTime % 60)).slice(-2)}
+					</p>
+				</div>
 
-			<button className={styles.fullscreen} onClick={fullscreen}>
-			<RxEnterFullScreen className={styles.fullscreenButton} />
-			</button>
+				<button className={styles.fullscreen} onClick={fullscreen}>
+					<RxEnterFullScreen className={styles.fullscreenButton} />
+				</button>
 			</div>
 		</div>
 	)
