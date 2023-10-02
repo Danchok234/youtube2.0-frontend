@@ -34,6 +34,7 @@ const ProfileMenu: FC = () => {
 						src={data?.avatarPath ? data.avatarPath : '/default/user.webp'}
 						width={40}
 						height={40}
+						className='rounded-full'
 						alt={data?.name || ''}
 						priority
 					/>
