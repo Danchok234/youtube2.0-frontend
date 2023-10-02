@@ -2,14 +2,14 @@ import Home from '@/components/screens/home/Home'
 import { IHome } from '@/components/screens/home/home.interface'
 import { VideoService } from '@/services/video/video.service'
 import { shuffle } from 'lodash'
-import { GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { IVideo } from '../../app/types/video.interface'
 
 const HomePage: NextPage<IHome> = props => {
 	return <Home {...props} />
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 	try {
 		const { data: newVideos } = await VideoService.getAllVideos()
 		const { data: topVideos } = await VideoService.getMostPopular()
