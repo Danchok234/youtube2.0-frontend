@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const BASE_URL = process.env.BASE_URL || 'http://localhost:4200'
+
 const nextConfig = {
 	swcMinify: true,
 	poweredByHeader: false,
@@ -13,13 +16,11 @@ const nextConfig = {
 			beforeFiles: [
 				{
 					source: '/api/:path*',
-					// destination: 'https://youtube2-0-backend.onrender.com/api/:path*',
-					destination: 'http://localhost:4200/api/:path*',
+					destination: `${BASE_URL}/api/:path*`,
 				},
 				{
 					source: '/uploads/:path*',
-					// destination: 'https://youtube2-0-backend.onrender.com/uploads/:path*',
-					destination: 'http://localhost:4200/uploads/:path*',
+					destination: `${BASE_URL}/uploads/:path*`,
 				},
 			],
 		}
