@@ -36,9 +36,9 @@ const EmailVerification: FC<IEmailVerification> = ({ isVerified }) => {
 			{!isVerified ? (
 				!emailToken ? (
 					isEmailMsgSent ? (
-						<h3 className='text-sm text-grey-400 text-center'>Check your email!</h3>
+						<h3 className='text-sm text-grey-400 text-center w-full'>Check your email!</h3>
 					) : (
-						<Button type='button' onClick={() => onVerify()} className='whitespace-nowrap'>
+						<Button type='button' onClick={() => onVerify()} className='whitespace-nowrap w-full'>
 							Verify Email
 						</Button>
 					)

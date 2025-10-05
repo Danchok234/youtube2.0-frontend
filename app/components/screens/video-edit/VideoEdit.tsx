@@ -35,11 +35,12 @@ const VideoEdit: FC = () => {
 		mode: 'onChange',
 	})
 
-	const [updateVideo, { isLoading: isUpdateVideoLoading }] = videoApi.useUpdateVideoMutation()
+	const [updateVideo, { isLoading: isUpdateVideoLoading }] =
+		videoApi.useUpdateVideoMutation()
 
 	const { user } = useAuth()
 
-		if (!user?.id) push('/')
+	if (!user?.id) push('/')
 
 	const onSubmit: SubmitHandler<IVideoDto> = data => {
 		updateVideo({
@@ -66,7 +67,12 @@ const VideoEdit: FC = () => {
 
 	return (
 		<Layout title='Video editing'>
-			<form className={'mt-10 md:ml-5 ml-0 flex md:flex-row flex-col flex-wrap w-full h-full'} onSubmit={handleSubmit(onSubmit)}>
+			<form
+				className={
+					'mt-10 md:ml-5 ml-0 flex md:flex-row flex-col flex-wrap w-full h-full'
+				}
+				onSubmit={handleSubmit(onSubmit)}
+			>
 				<div className='md:w-7/12 w-full md:pr-6 pr-0 pt-3 self-start'>
 					<Field
 						{...register('name', {
@@ -82,18 +88,23 @@ const VideoEdit: FC = () => {
 						placeholder='Description'
 						error={errors.description}
 					/>
-					<div className={'mt-10 flex flex-col items-start gap-7 justify-center'}>
-						<Controller
-							control={control}
-							name='thumbnailPath'
-							render={({ field: { onChange } }) => (
-								<UploadField
-									type={FileTypeEnum.THUMBNAIL}
-									onChange={(value: IMediaResponse) => onChange(value.url)}
-									folder='thumbnails'
-								/>
-							)}
-						/>
+					<div
+						className={'mt-10 flex flex-col items-start gap-7 justify-center'}
+					>
+						<div>
+							<h3 className='mb-3'>Thumbnail:</h3>
+							<Controller
+								control={control}
+								name='thumbnailPath'
+								render={({ field: { onChange } }) => (
+									<UploadField
+										type={FileTypeEnum.THUMBNAIL}
+										onChange={(value: IMediaResponse) => onChange(value.url)}
+										folder='thumbnails'
+									/>
+								)}
+							/>
+						</div>
 						<div>
 							<h3 className='mb-3'>Video:</h3>
 							<Controller
@@ -113,7 +124,10 @@ const VideoEdit: FC = () => {
 						control={control}
 						name='isPublic'
 						render={({ field: { onChange, value } }) => (
-							<TogglePublic isEnabled={!!value} clickHandler={() => onChange(!value)} />
+							<TogglePublic
+								isEnabled={!!value}
+								clickHandler={() => onChange(!value)}
+							/>
 						)}
 					/>
 				</div>
@@ -125,7 +139,10 @@ const VideoEdit: FC = () => {
 						videoId={videoId}
 					/>
 				</div>
-				<Button className='mt-10'> {isUpdateVideoLoading ? 'Wait...' : 'Save'} </Button>
+				<Button className='mt-10'>
+					{' '}
+					{isUpdateVideoLoading ? 'Wait...' : 'Save'}{' '}
+				</Button>
 			</form>
 		</Layout>
 	)

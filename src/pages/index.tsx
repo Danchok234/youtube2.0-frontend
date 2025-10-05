@@ -19,10 +19,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
 				newVideos,
 				topVideo: topVideos[0] || {},
 				randomVideo:
-					shuffle(newVideos.filter(video => video.id !== topVideos[0].id))[0] || ({} as IVideo),
+					shuffle(newVideos?.filter(video => video.id !== topVideos[0]?.id))[0] || ({} as IVideo),
 			},
 		}
 	} catch (error) {
+		console.log("error:"+error);
 		return {
 			props: {
 				newVideos: [],

@@ -1,6 +1,5 @@
 import { IVideo, IVideoDto } from '@/types/video.interface'
 import { api } from './api'
-import { type } from 'os'
 
 export const videoApi = api.injectEndpoints({
 	endpoints:builder => ({

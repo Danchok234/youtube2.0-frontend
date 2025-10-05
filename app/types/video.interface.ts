@@ -7,7 +7,7 @@ export interface IVideo extends IBase {
 	views: number
 	likes?:ILike[]
 	likesCount: number
-	duration?: number
+	duration: number
 	isPublic?: boolean
 	description: string
 	videoPath: string

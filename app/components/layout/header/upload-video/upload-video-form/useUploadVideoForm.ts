@@ -9,7 +9,10 @@ interface IUseUploadVideoForm {
 	setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export const useUploadVideoForm = ({ videoId, setIsOpen }: IUseUploadVideoForm) => {
+export const useUploadVideoForm = ({
+	videoId,
+	setIsOpen,
+}: IUseUploadVideoForm) => {
 	const {
 		register,
 		handleSubmit,
@@ -43,9 +46,9 @@ export const useUploadVideoForm = ({ videoId, setIsOpen }: IUseUploadVideoForm) 
 	const [videoFileName, setVideoFileName] = useState('')
 
 	const handleUploadVideo = (media: IMediaResponse) => {
+		console.log("I am here");
 		setValue('videoPath', media.url)
-		//@ts-ignore
-		setValue('duration', Math.round(media?.duration))
+		setValue('duration', Math.round(media?.duration));
 		setVideoFileName(media.name)
 	}
 

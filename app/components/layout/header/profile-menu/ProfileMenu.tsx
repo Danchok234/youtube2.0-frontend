@@ -28,19 +28,27 @@ const ProfileMenu: FC = () => {
 	if (isLoading) return <div>Loading...</div>
 	return (
 		<div ref={ref} className={styles.profile_menu}>
-			<button onClick={() => setIsShow(!isShow)}>
-				<div className='flex rounded-full w-[40px] h-[40px] items-center justify-center overflow-hidden'>
+			<button
+				onClick={() => setIsShow(!isShow)}
+				className='inline-flex items-center gap-2'
+			>
+				<div className='h-10 w-10 shrink-0 overflow-hidden rounded-full'>
 					<Image
-						src={data?.avatarPath ? data.avatarPath : '/default/user.webp'}
+						src={data?.avatarPath || '/default/user.webp'}
 						width={40}
 						height={40}
-						className='rounded-full'
 						alt={data?.name || ''}
+						className='h-full w-full object-cover' // fill the rounded box
 						priority
 					/>
 				</div>
+
 				<span>{data?.name}</span>
-				{isShow ? <CgChevronUp className={styles.svg} /> : <CgChevronDown className={styles.svg} />}
+				{isShow ? (
+					<CgChevronUp className={styles.svg} />
+				) : (
+					<CgChevronDown className={styles.svg} />
+				)}
 			</button>
 			<ul
 				className={clsx(styles.list, {

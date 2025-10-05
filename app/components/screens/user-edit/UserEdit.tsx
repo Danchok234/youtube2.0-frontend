@@ -7,7 +7,6 @@ import { FileTypeEnum } from '@/components/ui/upload-field/upload-field.interfac
 import { useAuth } from '@/hooks/useAuth'
 import { IMediaResponse } from '@/services/media/media.interface'
 import { api } from '@/store/api/api'
-import { IUserDto } from '@/types/user.interface'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
@@ -16,7 +15,6 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { toastr } from 'react-redux-toastr'
 import EmailVerification from './EmailVerification'
 import { IUserFields } from './user-edit.interface'
-import { watch } from 'fs'
 
 const UserEdit: FC = () => {
 	const { query, push } = useRouter()
@@ -47,13 +45,20 @@ const UserEdit: FC = () => {
 	})
 
 	const onSubmit: SubmitHandler<IUserFields> = data => {
+		console.log('updating...')
 		if (user) {
-			updateUserInfo(data.password ? { ...data, id: userId } : {...data, password:user.password, id:userId})
+			updateUserInfo(
+				data.password
+					? { ...data, id: userId }
+					: { ...data, password: user.password, id: userId }
+			)
 				.unwrap()
 				.then(() => {
 					toastr.success('Status', 'Success Updating!')
 					push(`/c/${query.id}`)
 				})
+
+			console.log('updated')
 		}
 	}
 
@@ -69,21 +74,24 @@ const UserEdit: FC = () => {
 
 	return (
 		<Layout title='User edit'>
-			<form className='flex-col justify-start md:flex-row flex flex-wrap w-full mt-10 ml-2' onSubmit={handleSubmit(onSubmit)}>
+			<form
+				className='flex-col justify-start md:flex-row flex flex-wrap w-full mt-10 ml-2'
+				onSubmit={handleSubmit(onSubmit)}
+			>
 				<div className='md:w-7/12 w-full flex-col gap-3 pr-5'>
 					<Field
 						{...register('name', {
 							required: 'You must have a name!',
 							maxLength: {
 								value: 20,
-								message:"Max username length is 20!"
-							}
+								message: 'Max username length is 20!',
+							},
 						})}
 						placeholder='Name'
 						error={errors.name}
 					/>
 					<TextArea {...register('description')} placeholder='Description' />
-					<div className='flex items-center justify-center gap-4 my-4'>
+					<div className='flex md:flex-row flex-col items-center justify-center gap-4 my-4'>
 						<Field
 							{...register('email', {
 								required: 'You must have an email!',
@@ -124,7 +132,7 @@ const UserEdit: FC = () => {
 					<div className=' flex items-center justify-center overflow-hidden rounded-full w-[10rem] h-[10rem] bg-grey-400 ml-5'>
 						{watch('avatarPath') ? (
 							<Image
-								src={watch("avatarPath")}
+								src={watch('avatarPath')}
 								alt='avatar'
 								className='rounded-full'
 								width={160}

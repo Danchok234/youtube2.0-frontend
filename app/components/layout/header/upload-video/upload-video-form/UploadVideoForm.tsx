@@ -22,7 +22,7 @@ const UploadVideoForm: FC<IUploadVideoForm> = ({videoId, setIsOpen}) => {
 	const {form, status, media} = useUploadVideoForm({videoId, setIsOpen})
 
 	return (
-		<form className={" flex lg:flex-wrap flex-col lg:flex-row w-full h-full"} onSubmit={form.handleSubmit(form.onSubmit)}>
+		<form className={"flex lg:flex-wrap flex-col lg:flex-row w-full h-full pb-10"} onSubmit={form.handleSubmit(form.onSubmit)}>
 			{status.isSuccess && <SuccessMessage />}
 			{status.isChosen ? <>
 			<div className='lg:w-7/12 w-full lg:pr-6 pr-0 pt-3 self-start'>
